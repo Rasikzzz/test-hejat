@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hejat — Your Outfit Changes. Why Shouldn't Your Phone?</title>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -12,7 +11,6 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background: #0a0a0a;
@@ -20,7 +18,6 @@
       overflow-x: hidden;
       line-height: 1.5;
     }
-
     /* ========== HEADER ========== */
     header {
       position: fixed;
@@ -34,14 +31,12 @@
       align-items: center;
       background: transparent;
     }
-
     .logo {
       font-size: 28px;
       font-weight: 700;
       letter-spacing: 4px;
       color: white;
     }
-
     /* ========== HERO ========== */
     .hero {
       min-height: 100vh;
@@ -54,7 +49,6 @@
       padding: 120px 20px 80px;
       position: relative;
     }
-
     .badge {
       display: inline-flex;
       align-items: center;
@@ -69,7 +63,6 @@
       margin-bottom: 40px;
       color: white;
     }
-
     .badge::before {
       content: "";
       width: 6px;
@@ -77,7 +70,6 @@
       background: #fff;
       border-radius: 50%;
     }
-
     .phone-mockup {
       width: 220px;
       height: 440px;
@@ -91,7 +83,6 @@
       align-items: center;
       justify-content: center;
     }
-
     .phone-mockup::before {
       content: "";
       position: absolute;
@@ -101,7 +92,6 @@
       background: #0a0a0a;
       border-radius: 20px;
     }
-
     .phone-screen {
       width: 90%;
       height: 88%;
@@ -112,7 +102,6 @@
       justify-content: center;
       padding-bottom: 40px;
     }
-
     .signal {
       width: 40px;
       height: 20px;
@@ -120,18 +109,15 @@
       gap: 3px;
       align-items: flex-end;
     }
-
     .signal span {
       width: 5px;
       background: #4a9eff;
       border-radius: 2px;
     }
-
     .signal span:nth-child(1) { height: 6px; }
     .signal span:nth-child(2) { height: 10px; }
     .signal span:nth-child(3) { height: 14px; }
     .signal span:nth-child(4) { height: 18px; }
-
     .hero h1 {
       font-size: clamp(32px, 6vw, 64px);
       font-weight: 700;
@@ -141,7 +127,6 @@
       color: white;
       letter-spacing: -1px;
     }
-
     .btn {
       display: inline-flex;
       align-items: center;
@@ -157,90 +142,75 @@
       cursor: pointer;
       transition: all 0.25s ease;
     }
-
     .btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
-
     .btn-dark {
       background: #111;
       color: white;
     }
-
     .btn-dark:hover {
       background: #222;
     }
-
     .scroll-hint {
       margin-top: 50px;
       font-size: 13px;
       opacity: 0.7;
       letter-spacing: 1px;
     }
-
     /* ========== COLORS SECTION ========== */
     .colors-section {
       background: #000;
       padding: 100px 20px 60px;
       text-align: center;
     }
-
     .colors-section h2 {
       font-size: clamp(36px, 7vw, 72px);
       font-weight: 700;
       line-height: 1.05;
       margin-bottom: 10px;
     }
-
     .colors-section h2 span {
       display: block;
       color: #333;
       -webkit-text-stroke: 1px #444;
     }
-
     .color-bars {
       display: flex;
       height: 180px;
       margin: 60px 0 30px;
     }
-
     .color-bar {
       flex: 1;
       transition: flex 0.4s ease;
     }
-
     .color-bar:hover {
       flex: 1.4;
     }
-
     .crimson { background: #e63946; }
     .cobalt  { background: #1d4ed8; }
     .amber   { background: #f59e0b; }
     .forest  { background: #16a34a; }
     .violet  { background: #9333ea; }
     .pearl   { background: #f8fafc; }
-
     .color-dots {
       display: flex;
       justify-content: center;
       gap: 12px;
       margin-bottom: 40px;
     }
-
     .dot {
       width: 12px;
       height: 12px;
       border-radius: 50%;
     }
-
     .dot.crimson { background: #e63946; }
     .dot.cobalt  { background: #1d4ed8; }
     .dot.amber   { background: #f59e0b; }
     .dot.forest  { background: #16a34a; }
     .dot.violet  { background: #9333ea; }
     .dot.pearl   { background: #f8fafc; border: 1px solid #555; }
-
     .color-names {
       display: flex;
       justify-content: center;
@@ -251,14 +221,12 @@
       opacity: 0.6;
       text-transform: uppercase;
     }
-
     /* ========== TECHNOLOGY ========== */
     .tech-section {
       background: #0a0a0a;
       padding: 120px 20px;
       text-align: center;
     }
-
     .tech-label {
       font-size: 14px;
       letter-spacing: 3px;
@@ -266,21 +234,18 @@
       opacity: 0.5;
       margin-bottom: 20px;
     }
-
     .tech-section h2 {
       font-size: clamp(32px, 5vw, 52px);
       font-weight: 700;
       max-width: 700px;
       margin: 0 auto 20px;
     }
-
     .tech-section p {
       font-size: 18px;
       opacity: 0.7;
       max-width: 500px;
       margin: 0 auto 50px;
     }
-
     /* ========== WAITLIST FORM ========== */
     .waitlist-section {
       background: #0a0a0a;
@@ -288,7 +253,6 @@
       display: flex;
       justify-content: center;
     }
-
     .form-card {
       background: #151515;
       border: 1px solid #2a2a2a;
@@ -298,25 +262,22 @@
       max-width: 420px;
       text-align: center;
     }
-
     .form-card h3 {
       font-size: 28px;
       font-weight: 700;
       margin-bottom: 12px;
     }
-
     .form-card p {
       font-size: 15px;
       opacity: 0.65;
       margin-bottom: 32px;
     }
-
     .form-group {
       margin-bottom: 16px;
     }
-
     input[type="email"],
-    input[type="text"] {
+    input[type="text"],
+    textarea {
       width: 100%;
       padding: 16px 20px;
       border-radius: 50px;
@@ -326,44 +287,50 @@
       font-size: 15px;
       outline: none;
       transition: border 0.2s;
+      font-family: inherit;
     }
-
-    input:focus {
+    textarea {
+      border-radius: 20px;
+      resize: vertical;
+      min-height: 90px;
+    }
+    input:focus,
+    textarea:focus {
       border-color: #666;
     }
-
-    input::placeholder {
+    input::placeholder,
+    textarea::placeholder {
       color: #666;
     }
-
     .form-card .btn {
       width: 100%;
       justify-content: center;
       margin-top: 8px;
       padding: 18px;
     }
-
+    .form-card .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
     .success-msg {
       display: none;
       color: #4ade80;
       font-size: 15px;
       margin-top: 20px;
     }
-
     .error-msg {
       display: none;
       color: #f87171;
       font-size: 14px;
       margin-top: 12px;
     }
-
     /* ========== BOTTOM CTA ========== */
     .bottom-cta {
       background: #3b1a1a;
       padding: 100px 20px;
       text-align: center;
     }
-
     .bottom-cta h2 {
       font-size: clamp(28px, 5vw, 48px);
       font-weight: 700;
@@ -371,7 +338,6 @@
       margin: 0 auto 40px;
       line-height: 1.15;
     }
-
     /* ========== FOOTER ========== */
     footer {
       background: #0a0a0a;
@@ -383,7 +349,6 @@
       opacity: 0.5;
       border-top: 1px solid #1a1a1a;
     }
-
     /* ========== RESPONSIVE ========== */
     @media (max-width: 600px) {
       header { padding: 20px; }
@@ -396,7 +361,6 @@
   </style>
 </head>
 <body>
-
   <!-- HEADER -->
   <header>
     <div class="logo">HEJAT</div>
@@ -405,7 +369,6 @@
   <!-- HERO -->
   <section class="hero">
     <div class="badge">COMING SOON ON KICKSTARTER</div>
-
     <div class="phone-mockup">
       <div class="phone-screen">
         <div class="signal">
@@ -413,16 +376,13 @@
         </div>
       </div>
     </div>
-
     <h1>YOUR OUTFIT CHANGES.<br>WHY SHOULDN'T YOUR PHONE?</h1>
-
     <a href="#waitlist" class="btn">
       GET EARLY ACCESS
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
         <path d="M5 12h14M12 5l7 7-7 7"/>
       </svg>
     </a>
-
     <div class="scroll-hint">SCROLL DOWN TO SIGN UP</div>
   </section>
 
@@ -432,7 +392,6 @@
       ONE CASE.
       <span>EVERY COLOR.</span>
     </h2>
-
     <div class="color-bars">
       <div class="color-bar crimson"></div>
       <div class="color-bar cobalt"></div>
@@ -441,7 +400,6 @@
       <div class="color-bar violet"></div>
       <div class="color-bar pearl"></div>
     </div>
-
     <div class="color-dots">
       <div class="dot crimson"></div>
       <div class="dot cobalt"></div>
@@ -450,7 +408,6 @@
       <div class="dot violet"></div>
       <div class="dot pearl"></div>
     </div>
-
     <div class="color-names">
       <span>Crimson</span>
       <span>Cobalt</span>
@@ -473,7 +430,6 @@
     <div class="form-card">
       <h3>BE FIRST.</h3>
       <p>Join the waitlist for early Kickstarter access and exclusive launch pricing.</p>
-
       <form id="early-access-form">
         <div class="form-group">
           <input type="text" id="user_name" name="user_name" placeholder="Your name" required />
@@ -481,13 +437,15 @@
         <div class="form-group">
           <input type="email" id="user_email" name="user_email" placeholder="your@email.com" required />
         </div>
+        <div class="form-group">
+          <textarea id="user_message" name="user_message" placeholder="Anything you'd like to tell us? (optional)"></textarea>
+        </div>
         <button type="submit" class="btn btn-dark" id="submit-btn">
           GET EARLY ACCESS
         </button>
       </form>
-
       <div class="success-msg" id="success-msg">
-        ✓ You're on the list! Check your email.
+        ✓ You're on the list! Check your email for confirmation.
       </div>
       <div class="error-msg" id="error-msg">
         Something went wrong. Please try again.
@@ -513,43 +471,53 @@
   </footer>
 
   <script>
-    // Initialize EmailJS
-    (function() {
-      emailjs.init("LoZF7iaEImREpisHb");
-    })();
+    // Google Apps Script endpoint (writes to Google Sheets + can send confirmation email)
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxP5X47uJyY5McNsKI_jioe8HCXC1UXYP3OO-S_JVAVtMzNcCzbmqH9bn5d9vURBhJ3/exec";
 
     const form = document.getElementById('early-access-form');
     const submitBtn = document.getElementById('submit-btn');
     const successMsg = document.getElementById('success-msg');
     const errorMsg = document.getElementById('error-msg');
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
+
+      const name = document.getElementById('user_name').value.trim();
+      const email = document.getElementById('user_email').value.trim();
+      const message = document.getElementById('user_message').value.trim();
+
+      if (!name || !email) return;
 
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
       successMsg.style.display = 'none';
       errorMsg.style.display = 'none';
 
-      const templateParams = {
-        from_name: document.getElementById('user_name').value,
-        from_email: document.getElementById('user_email').value,
-        to_email: document.getElementById('user_email').value,   // sends to the user
-        message: 'New early access signup'
-      };
-
-      emailjs.send('service_tkn7ia3', 'template_ijzcn8o', templateParams)
-        .then(function() {
-          successMsg.style.display = 'block';
-          form.reset();
-          submitBtn.textContent = 'GET EARLY ACCESS';
-          submitBtn.disabled = false;
-        }, function(error) {
-          console.error('EmailJS Error:', error);
-          errorMsg.style.display = 'block';
-          submitBtn.textContent = 'GET EARLY ACCESS';
-          submitBtn.disabled = false;
+      try {
+        await fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors", // Required for Google Apps Script
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            message: message || "Early Access Signup"
+          }),
         });
+
+        // With no-cors we can't read the response, so we assume success
+        // if no network error occurred
+        successMsg.style.display = 'block';
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        errorMsg.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'GET EARLY ACCESS';
+      }
     });
   </script>
 </body>
