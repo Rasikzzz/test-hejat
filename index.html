@@ -383,4 +383,142 @@
         <path d="M5 12h14M12 5l7 7-7 7"/>
       </svg>
     </a>
-    <div class="scroll-hint">SCROLL 
+    <div class="scroll-hint">SCROLL DOWN TO SIGN UP</div>
+  </section>
+
+  <!-- COLORS -->
+  <section class="colors-section">
+    <h2>
+      ONE CASE.
+      <span>EVERY COLOR.</span>
+    </h2>
+    <div class="color-bars">
+      <div class="color-bar crimson"></div>
+      <div class="color-bar cobalt"></div>
+      <div class="color-bar amber"></div>
+      <div class="color-bar forest"></div>
+      <div class="color-bar violet"></div>
+      <div class="color-bar pearl"></div>
+    </div>
+    <div class="color-dots">
+      <div class="dot crimson"></div>
+      <div class="dot cobalt"></div>
+      <div class="dot amber"></div>
+      <div class="dot forest"></div>
+      <div class="dot violet"></div>
+      <div class="dot pearl"></div>
+    </div>
+    <div class="color-names">
+      <span>Crimson</span>
+      <span>Cobalt</span>
+      <span>Amber</span>
+      <span>Forest</span>
+      <span>Violet</span>
+      <span>Pearl</span>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY -->
+  <section class="tech-section">
+    <div class="tech-label">The Technology</div>
+    <h2>DESIGNED TO MATCH YOUR OUTFIT.</h2>
+    <p>One case. Infinite looks. Change the color of your phone to match whatever you're wearing — instantly.</p>
+  </section>
+
+  <!-- WAITLIST FORM -->
+  <section class="waitlist-section" id="waitlist">
+    <div class="form-card">
+      <h3>BE FIRST.</h3>
+      <p>Join the waitlist for early Kickstarter access and exclusive launch pricing.</p>
+      <form id="early-access-form">
+        <div class="form-group">
+          <input type="text" id="user_name" name="user_name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <input type="email" id="user_email" name="user_email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <textarea id="user_message" name="user_message" placeholder="Anything you'd like to tell us? (optional)"></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark" id="submit-btn">
+          GET EARLY ACCESS
+        </button>
+      </form>
+      <div class="success-msg" id="success-msg">
+        ✓ You're on the list! Check your email for confirmation.
+      </div>
+      <div class="error-msg" id="error-msg">
+        Something went wrong. Please try again.
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <h2>THE NEXT BIG THING IN PHONE FASHION IS COMING.</h2>
+    <a href="#waitlist" class="btn">
+      GET EARLY ACCESS
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>© 2026 Hejat. All rights reserved.</div>
+    <div>Coming Soon on Kickstarter</div>
+  </footer>
+
+  <script>
+    // Google Apps Script endpoint (writes to Google Sheets + sends confirmation email)
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbztXLfAiCBctbQrc7bssM7aewUkPq3kmBBDhk7MpSHONpcYy6FnjGWNmYxAIym5Ew29/exec";
+
+    const form = document.getElementById('early-access-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const successMsg = document.getElementById('success-msg');
+    const errorMsg = document.getElementById('error-msg');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('user_name').value.trim();
+      const email = document.getElementById('user_email').value.trim();
+      const message = document.getElementById('user_message').value.trim();
+
+      if (!name || !email) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors", // Required for Google Apps Script
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            message: message || "Early Access Signup"
+          }),
+        });
+
+        // With no-cors we can't read the response, so we assume success
+        // if no network error occurred
+        successMsg.style.display = 'block';
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        errorMsg.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'GET EARLY ACCESS';
+      }
+    });
+  </script>
+</body>
+</html>
