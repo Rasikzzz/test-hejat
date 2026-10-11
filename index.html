@@ -471,8 +471,8 @@
   </footer>
 
   <script>
-    // Google Apps Script endpoint (writes to Google Sheets + sends confirmation email)
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbztXLfAiCBctbQrc7bssM7aewUkPq3kmBBDhk7MpSHONpcYy6FnjGWNmYxAIym5Ew29/exec";
+    // Google Apps Script endpoint
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzMsh8VQD6xLsWmtyUUOTiaOYedAAP_J-Hjat86_6WIxU-xHISH2_XF26hM1uJ0imCf/exec";
 
     const form = document.getElementById('early-access-form');
     const submitBtn = document.getElementById('submit-btn');
@@ -496,7 +496,7 @@
       try {
         await fetch(SCRIPT_URL, {
           method: "POST",
-          mode: "no-cors", // Required for Google Apps Script
+          mode: "no-cors",
           headers: {
             "Content-Type": "text/plain;charset=utf-8",
           },
@@ -507,8 +507,6 @@
           }),
         });
 
-        // With no-cors we can't read the response, so we assume success
-        // if no network error occurred
         successMsg.style.display = 'block';
         form.reset();
       } catch (err) {
